@@ -4,7 +4,7 @@ AddCSLuaFile("shared.lua")
 function ENT:SpawnFunction(ply, tr)
 	if (!tr.Hit) then return end
 	local ent=ents.Create(ClassName)
-	ent:SetPos(tr.HitPos+tr.HitNormal*10)
+	ent:SetPos(tr.HitPos+tr.HitNormal*100)
 	ent:Spawn()
 	ent:Activate()
 	ent:SetSkin(math.random(0,4))
