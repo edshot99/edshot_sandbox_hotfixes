@@ -62,7 +62,7 @@ local cvar_reportingenabled = CreateConVar("sv_materialurl_reportingenabled",0,{
 local cvar_limitedsize = CreateConVar("sv_materialurl_limitedsize",0,{FCVAR_ARCHIVE,FCVAR_REPLICATED})
 local cvar_sizelimit = CreateConVar("sv_materialurl_filesizelimit",1000,{FCVAR_ARCHIVE,FCVAR_REPLICATED}) --kilobytes
 local cvar_limitedmaterials = CreateConVar("sv_materialurl_limitedmaterials",1,{FCVAR_ARCHIVE,FCVAR_REPLICATED})
-local cvar_materiallimit = CreateConVar("sv_materialurl_materiallimit",5,{FCVAR_ARCHIVE,FCVAR_REPLICATED},1) --per player
+local cvar_materiallimit = CreateConVar("sv_materialurl_materiallimit",5,{FCVAR_ARCHIVE,FCVAR_REPLICATED},"",1) --per player
 local cvar_cooldown = CreateConVar("sv_materialurl_cooldown",10,{FCVAR_ARCHIVE,FCVAR_REPLICATED},"",2)
 
 if SERVER then ----- SERVER -----
