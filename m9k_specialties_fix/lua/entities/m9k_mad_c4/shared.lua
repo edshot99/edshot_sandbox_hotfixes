@@ -168,7 +168,7 @@ end
 
 if CLIENT then
 
-language.Add("ent_mad_c4")
+language.Add("ent_mad_c4", "C4")
 
 /*---------------------------------------------------------
    Name: ENT:Draw()
