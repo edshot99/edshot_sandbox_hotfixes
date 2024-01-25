@@ -30,9 +30,11 @@ function PANEL:Init()
 	self.InfoLabels[ 2 ] = {}
 	self.InfoLabels[ 3 ] = {}
 
+	--[[
 	self.btnKick = vgui.Create( "suiplayerkickbutton", self )
 	self.btnBan = vgui.Create( "suiplayerbanbutton", self )
 	self.btnPBan = vgui.Create( "suiplayerpermbanbutton", self )
+	]]--
 
 	self.VoteButtons = {}
 
@@ -180,6 +182,7 @@ function PANEL:PerformLayout()
 		end
 	end
 
+	--[[
 	if not LocalPlayer():IsAdmin() then
 		self.btnKick:SetVisible( false )
 		self.btnBan:SetVisible( false )
@@ -202,6 +205,7 @@ function PANEL:PerformLayout()
 		self.btnPBan.DoClick = function () Scoreboard.pBan( self.Player ) end
 		self.btnBan.DoClick = function () Scoreboard.ban( self.Player ) end
 	end
+	]]--
 
 	for k, v in ipairs( self.VoteButtons ) do
 		v:InvalidateLayout()
