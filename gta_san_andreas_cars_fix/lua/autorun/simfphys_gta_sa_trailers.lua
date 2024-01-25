@@ -42,6 +42,7 @@ local TRAILER = {
         Mass = 6666,
  
         OnSpawn = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:SetActive( true )
                 ent:SetSimfIsTrailer(true)
@@ -50,8 +51,10 @@ local TRAILER = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end,
         OnTick = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:Lock() -- locks trailer
                 if not ent:GetIsBraking() then
@@ -67,6 +70,7 @@ local TRAILER = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end,
  
         LightsTable = "gta_sa_artict1",
@@ -172,6 +176,7 @@ local TRAILER = {
         Mass = 6666,
  
         OnSpawn = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:SetActive( true )
                 ent:SetSimfIsTrailer(true)
@@ -180,8 +185,10 @@ local TRAILER = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end,
         OnTick = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:Lock() -- locks trailer
                 if not ent:GetIsBraking() then
@@ -197,6 +204,7 @@ local TRAILER = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end,
  
         LightsTable = "gta_sa_artict1",
@@ -302,6 +310,7 @@ local TRAILER = {
         Mass = 2300,
  
         OnSpawn = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:SetActive( true )
                 ent:SetSimfIsTrailer(true)
@@ -310,8 +319,10 @@ local TRAILER = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end,
         OnTick = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:Lock() -- locks trailer
                 if not ent:GetIsBraking() then
@@ -327,6 +338,7 @@ local TRAILER = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end,
  
         LightsTable = "gta_sa_artict1",
@@ -432,6 +444,7 @@ local TRAILER = {
         Mass = 6666,
  
         OnSpawn = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:SetActive( true )
                 ent:SetSimfIsTrailer(true)
@@ -440,8 +453,10 @@ local TRAILER = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end,
         OnTick = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:Lock() -- locks trailer
                 if not ent:GetIsBraking() then
@@ -457,6 +472,7 @@ local TRAILER = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end,
  
         LightsTable = "gta_sa_artict1",
@@ -593,6 +609,7 @@ local TRAILER = {
         Mass = 8000,
  
         OnSpawn = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:SetActive( true )
                 ent:SetSimfIsTrailer(true)
@@ -601,8 +618,10 @@ local TRAILER = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end,
         OnTick = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:Lock() -- locks trailer
                 if not ent:GetIsBraking() then
@@ -618,6 +637,7 @@ local TRAILER = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end,
  
         LightsTable = "gta_sa_petrotr",

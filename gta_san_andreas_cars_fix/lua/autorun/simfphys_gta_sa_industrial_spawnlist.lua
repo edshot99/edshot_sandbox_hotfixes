@@ -1194,6 +1194,7 @@ local V = {
 		Gears = {-0.1,0,0.09,0.16,0.26,0.38,0.5},
 //For trailers
 		OnSpawn = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:SetActive(true) -- makes avtive
                 ent:SetSimfIsTrailer(false)
@@ -1202,6 +1203,7 @@ local V = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end
 	}
 }
@@ -1569,6 +1571,7 @@ local V = {
 		Gears = {-0.1,0,0.09,0.16,0.26,0.38,0.5},
 //For trailers
 		OnSpawn = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:SetActive(true) -- makes avtive
                 ent:SetSimfIsTrailer(false)
@@ -1577,6 +1580,7 @@ local V = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end
 	}
 }
@@ -1716,6 +1720,7 @@ local V = {
 		Gears = {-0.1,0,0.09,0.16,0.26,0.38,0.5},
 //For trailers
 		OnSpawn = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:SetActive(true) -- makes avtive
                 ent:SetSimfIsTrailer(false)
@@ -1724,6 +1729,7 @@ local V = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end
 	}
 }
@@ -1848,6 +1854,7 @@ local V = {
 		Gears = {-0.1,0,0.09,0.16,0.26,0.38},
 //For trailers
 		OnSpawn = function(ent)
+--[[
             if ent:SimfIsTrailer() != nil then
                 ent:SetActive(true) -- makes avtive
                 ent:SetSimfIsTrailer(false)
@@ -1856,6 +1863,7 @@ local V = {
             else
                 print("INSTALL TRAILERS BASE FIRST")
             end
+]]--
         end
 	}
 }
