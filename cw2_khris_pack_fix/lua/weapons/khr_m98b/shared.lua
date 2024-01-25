@@ -103,15 +103,15 @@ if CLIENT then
 		["md_microt1"] = {model = "models/cw2/attachments/microt1.mdl", bone = "M98_Body", rel = "", pos = Vector(-0.003, -12.025, 1.169), angle = Angle(0, 180, 0), size = Vector(0.4, 0.4, 0.4)},
 		["md_foregrip"] = {model = "models/wystan/attachments/foregrip1.mdl", bone = "G3SG1", pos = Vector(-3.34, 7.82, -5.904), angle = Angle(0, 0, 0), size = Vector(0.75, 0.75, 0.75)},
 		["md_lasersight"] = {model = "models/rageattachments/anpeqbf.mdl", bone = "M98_Body", rel = "", pos = Vector(0.949, -0.982, 1.174), angle = Angle(-180, 90, -90), size = Vector(0.8, 0.8, 0.8)},
-		["md_csgo_scope_ssg"] = {model = "models/kali/weapons/csgo/eq_optic_scope_ssg08.mdl", bone = "M98_Body", rel = "", pos = Vector(0.052, -10.711, 0.819), angle = Angle(0, -90, 0), size = Vector(0.699, 0.699, 0.699)},
+		--["md_csgo_scope_ssg"] = {model = "models/kali/weapons/csgo/eq_optic_scope_ssg08.mdl", bone = "M98_Body", rel = "", pos = Vector(0.052, -10.711, 0.819), angle = Angle(0, -90, 0), size = Vector(0.699, 0.699, 0.699)},
 		["md_m98b_scope"] = {model = "models/attachments/98b_scope.mdl", bone = "M98_Body", rel = "", pos = Vector(-0.04, -11.74, 2.058), angle = Angle(0, -90, 0), size = Vector(0.449, 0.449, 0.449)},
-		["md_csgo_silencer_rifle"] = {model = "models/kali/weapons/csgo/eq_suppressor_rifle.mdl", bone = "M98_Body", rel = "", pos = Vector(-0.004, 17.627, -0.825), angle = Angle(0, -90, 0), size = Vector(1, 1, 1)},
-		["md_hk416_bipod"] = {model = "models/c_bipod.mdl", bone = "M98_Body", rel = "", pos = Vector(0.052, -0.299, -1.377), angle = Angle(0, 0, 0), size = Vector(1, 1, 1)},
+		--["md_csgo_silencer_rifle"] = {model = "models/kali/weapons/csgo/eq_suppressor_rifle.mdl", bone = "M98_Body", rel = "", pos = Vector(-0.004, 17.627, -0.825), angle = Angle(0, -90, 0), size = Vector(1, 1, 1)},
+		--["md_hk416_bipod"] = {model = "models/c_bipod.mdl", bone = "M98_Body", rel = "", pos = Vector(0.052, -0.299, -1.377), angle = Angle(0, 0, 0), size = Vector(1, 1, 1)},
 		["md_pgm_bipod"] = {model = "models/attachments/pgm_hecate_bipod.mdl", bone = "gun-main", rel = "", pos = Vector(13.217, 0.291, -0.339), angle = Angle(0, 0, -90), size = Vector(0.4, 0.4, 0.4)},
-		["md_csgo_acog"] = {model = "models/kali/weapons/csgo/eq_optic_acog.mdl", bone = "M98_Body", rel = "", pos = Vector(0.039, -16.928, -2.418), angle = Angle(0, -90, 0), size = Vector(0.75, 0.75, 0.75)},
-		["md_m203"] = {model = "models/cw2/attachments/m203.mdl", bone = "G3SG1", pos = Vector(-0.583, 3.305, -1.293), angle = Angle(2.538, -90, 0), size = Vector(1, 1, 1), animated = true},
-		["md_anpeq15"] = { type = "Model", model = "models/cw2/attachments/anpeq15.mdl", bone = "M98_Body", rel = "", pos = Vector(0.119, -5, 0.839), angle = Angle(0, -90, 0), size = Vector(0.5, 0.5, 0.5), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {}
-	}
+		--["md_csgo_acog"] = {model = "models/kali/weapons/csgo/eq_optic_acog.mdl", bone = "M98_Body", rel = "", pos = Vector(0.039, -16.928, -2.418), angle = Angle(0, -90, 0), size = Vector(0.75, 0.75, 0.75)},
+		--["md_m203"] = {model = "models/cw2/attachments/m203.mdl", bone = "G3SG1", pos = Vector(-0.583, 3.305, -1.293), angle = Angle(2.538, -90, 0), size = Vector(1, 1, 1), animated = true},
+		["md_m203"] = {model = "models/cw2/attachments/m203.mdl", bone = "G3SG1", pos = Vector(-0.583, 3.305, -1.293), angle = Angle(2.538, -90, 0), size = Vector(1, 1, 1), animated = true}
+		--["md_anpeq15"] = { type = "Model", model = "models/cw2/attachments/anpeq15.mdl", bone = "M98_Body", rel = "", pos = Vector(0.119, -5, 0.839), angle = Angle(0, -90, 0), size = Vector(0.5, 0.5, 0.5), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {}}
 	}
 
 	SWEP.ForeGripHoldPos = {
@@ -148,10 +148,11 @@ SWEP.LaserAngAdjust = Angle(0, 0, 0)
 SWEP.SightBGs = {main = 2, none = 1}
 SWEP.LuaViewmodelRecoil = false
 
-SWEP.Attachments = {[1] = {header = "Sight", offset = {600, -300},  atts = {"md_microt1", "md_eotech", "md_aimpoint", "md_csgo_acog", "md_csgo_scope_ssg", "md_fas2_leupold", "md_m98b_scope"}},
-	[2] = {header = "Barrel", offset = {-500, -400},  atts = {"md_csgo_silencer_rifle"}},
-	[3] = {header = "Handguard", offset = {-500, -0}, atts = {"md_hk416_bipod"}},
-	[4] = {header = "Rail", offset = {0, -400}, atts = {"md_anpeq15"}},
+--SWEP.Attachments = {[1] = {header = "Sight", offset = {600, -300},  atts = {"md_microt1", "md_eotech", "md_aimpoint", "md_csgo_acog", "md_csgo_scope_ssg", "md_fas2_leupold", "md_m98b_scope"}},
+SWEP.Attachments = {[1] = {header = "Sight", offset = {600, -300},  atts = {"md_microt1", "md_eotech", "md_aimpoint", "md_fas2_leupold", "md_m98b_scope"}},
+	--[2] = {header = "Barrel", offset = {-500, -400},  atts = {"md_csgo_silencer_rifle"}},
+	--[3] = {header = "Handguard", offset = {-500, -0}, atts = {"md_hk416_bipod"}},
+	--[4] = {header = "Rail", offset = {0, -400}, atts = {"md_anpeq15"}},
 	--["+attack2"] = {header = "Perks", offset = {-500, 500}, atts = {"pk_sleightofhand", "pk_light"}},
 	["+reload"] = {header = "Ammo", offset = {600, 200}, atts = {"am_magnum", "am_matchgrade"}}
 	}
