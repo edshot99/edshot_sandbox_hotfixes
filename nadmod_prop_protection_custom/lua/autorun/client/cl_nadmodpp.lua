@@ -206,7 +206,11 @@ function metaply:SteamID64bot()
 	if( not IsValid( self ) ) then return end
 	if self:IsBot() then
 		-- Calculate Bot's SteamID64 according to gmod wiki
-		return  ( 90071996842377216 + tonumber( string.sub( self:Nick(), 4) ) -1 )
+		if self:Nick() == "SourceTV" then
+			return 90071996842377216
+		else
+			return  ( 90071996842377217 + tonumber( string.sub( self:Nick(), 4) ) -1 )
+		end
 	else
 		return self:SteamID64()
 	end
