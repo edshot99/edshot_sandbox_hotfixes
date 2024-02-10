@@ -46,6 +46,7 @@ function ulx.votemapVeto( calling_ply )
 	end
 
 	timer.Remove( "ULXVotemap" )
+	timer.Remove( "ULXVotemapNotice" )
 	ulx.timedVeto = nil
 	hook.Call( ulx.HOOK_VETO )
 	ULib.tsay( _, "Votemap changelevel halted.", true )
@@ -166,6 +167,12 @@ function ulx.votemap( calling_ply, map )
 			ulx.logString( "Votemap for " .. ulx.votemaps[ mapid ] .. " won. Pending admin veto." )
 			ulx.timedVeto = true
 			hook.Call( ulx.HOOK_VETO )
+			ulx.csay(calling_ply, "====== MAP CHANGE IN: " .. vetotime .. " SECOND(S) ======")
+			local vetotime2 = vetotime - 1
+			timer.Create( "ULXVotemapNotice", 1, vetotime2, function()
+				ulx.csay(calling_ply, "====== MAP CHANGE IN: " .. vetotime2 .. " SECOND(S) ======")
+				vetotime2 = vetotime2 - 1
+			end )
 			timer.Create( "ULXVotemap", vetotime, 1, function() game.ConsoleCommand( "changelevel " .. ulx.votemaps[ mapid ] .. "\n" ) end )
 		end
 	end
