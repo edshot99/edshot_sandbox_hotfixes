@@ -159,6 +159,8 @@ Scoreboard.getPlayerTime = function (ply)
     return CurTime() - ply:GetNWInt("maestro-promote", CurTime())
   elseif Mercury~=nil then
     return ply:GetNWInt("ranktime", 0)
+  elseif CFCTime~=nil then
+    return math.floor(ply:GetNW2Float("CFC_Time_TotalTime", 0))
   else
     -- Get Time
     return ply:GetNWInt( "Time_Fixed" ) + (CurTime() - ply:GetNWInt( "Time_Join" ))
