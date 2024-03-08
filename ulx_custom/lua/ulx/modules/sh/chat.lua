@@ -15,6 +15,16 @@ psay:addParam{ type=ULib.cmds.PlayerArg, target="!^", ULib.cmds.ignoreCanTarget 
 psay:addParam{ type=ULib.cmds.StringArg, hint="message", ULib.cmds.takeRestOfLine }
 psay:defaultAccess( ULib.ACCESS_ALL )
 psay:help( "Send a private message to target." )
+local psay2 = ulx.command( CATEGORY_NAME, "ulx psay", ulx.psay, "!pm", true )
+psay2:addParam{ type=ULib.cmds.PlayerArg, target="!^", ULib.cmds.ignoreCanTarget }
+psay2:addParam{ type=ULib.cmds.StringArg, hint="message", ULib.cmds.takeRestOfLine }
+psay2:defaultAccess( ULib.ACCESS_ALL )
+psay2:help( "Send a private message to target." )
+local psay3 = ulx.command( CATEGORY_NAME, "ulx psay", ulx.psay, "!psay", true )
+psay3:addParam{ type=ULib.cmds.PlayerArg, target="!^", ULib.cmds.ignoreCanTarget }
+psay3:addParam{ type=ULib.cmds.StringArg, hint="message", ULib.cmds.takeRestOfLine }
+psay3:defaultAccess( ULib.ACCESS_ALL )
+psay3:help( "Send a private message to target." )
 
 ------------------------------ Asay ------------------------------
 local seeasayAccess = "ulx seeasay"
