@@ -19,6 +19,13 @@ local discord2 = ulx.command("Menus", "ulx discord", ulx.discord, "!discord");
 discord2:defaultAccess(ULib.ACCESS_ALL);
 discord2:help("View Discord invite.");
 
+function ulx.collection(calling_ply)
+	calling_ply:SendLua([[gui.OpenURL( "]] .. GetConVar("collection_url"):GetString() .. [[" )]]);
+end
+local collection = ulx.command("Menus", "ulx collection", ulx.collection, "!collection");
+collection:defaultAccess(ULib.ACCESS_ALL);
+collection:help("View server addons collection.");
+
 function ulx.soundlist(calling_ply)
 	calling_ply:ConCommand("menu_sounds");
 end
