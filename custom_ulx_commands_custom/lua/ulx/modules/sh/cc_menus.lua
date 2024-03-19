@@ -12,12 +12,9 @@ donate:help("View donation information.");
 function ulx.discord(calling_ply)
 	calling_ply:SendLua([[gui.OpenURL( "]] .. GetConVar("discord_url"):GetString() .. [[" )]]);
 end
-local discord = ulx.command("Menus", "ulx discord", ulx.discord, "!disc");
+local discord = ulx.command("Menus", "ulx discord", ulx.discord, {"!disc", "!discord"});
 discord:defaultAccess(ULib.ACCESS_ALL);
 discord:help("View Discord invite.");
-local discord2 = ulx.command("Menus", "ulx discord", ulx.discord, "!discord");
-discord2:defaultAccess(ULib.ACCESS_ALL);
-discord2:help("View Discord invite.");
 
 function ulx.collection(calling_ply)
 	calling_ply:SendLua([[gui.OpenURL( "]] .. GetConVar("collection_url"):GetString() .. [[" )]]);
