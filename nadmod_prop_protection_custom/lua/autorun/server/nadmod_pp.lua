@@ -51,6 +51,7 @@ if not NADMOD.Props then
 	AddCSLuaFile("autorun/client/cl_nadmodpp.lua")
 	util.AddNetworkString("nadmod_propowners")
 	util.AddNetworkString("nadmod_ppfriends")
+	util.AddNetworkString("nadmod_ppfriends_reset")
 	util.AddNetworkString("nadmod_ppconfig")
 	util.AddNetworkString("nadmod_cleanclragdolls")
 	util.AddNetworkString("nadmod_notify")
@@ -571,6 +572,13 @@ net.Receive("nadmod_ppfriends",function(len,ply)
 	end
 	NADMOD.Save()
 	NADMOD.Notify(ply, "Friends received!")
+end)
+net.Receive("nadmod_ppfriends_reset",function(len,ply)
+	if not ply:IsValid() then return end
+	if !NADMOD.Users[ply:SteamID()] then NADMOD.Users[ply:SteamID()] = {Rank = 1} end
+	NADMOD.Users[ply:SteamID()].Friends = {}
+	NADMOD.Save()
+	NADMOD.Notify(ply, "Friends reset!")
 end)
 
 function CPPI:GetName() return "Nadmod Prop Protection" end

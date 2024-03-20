@@ -233,6 +233,12 @@ concommand.Add("npp_applyfriends",function(ply,cmd,args)
 	net.SendToServer()
 end)
 
+concommand.Add("npp_resetfriends",function(ply,cmd,args)
+	net.Start("nadmod_ppfriends_reset")
+	net.SendToServer()
+	RunConsoleCommand("npp_refreshfriends")
+end)
+
 function NADMOD.ClientPanel(Panel)
 	RunConsoleCommand("npp_refreshfriends")
 	Panel:ClearControls()
@@ -241,8 +247,9 @@ function NADMOD.ClientPanel(Panel)
 	
 	Panel:Button("Cleanup Props", "nadmod_cleanupprops")
 	Panel:Button("Clear Clientside Ragdolls", "nadmod_cleanclragdolls")
+	Panel:Button("Remove All Online And Offline Friends", "npp_resetfriends")
 	
-	local txt = Panel:Help("                     Friends Panel")
+	local txt = Panel:Help("                     Online Friends Panel")
 	txt:SetContentAlignment( TEXT_ALIGN_CENTER )
 	txt:SetFont("DermaDefaultBold")
 	txt:SetAutoStretchVertical(false)
