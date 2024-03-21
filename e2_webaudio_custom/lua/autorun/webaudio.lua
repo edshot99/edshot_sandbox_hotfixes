@@ -678,6 +678,7 @@ local function checkWhitelist(wl, relative)
 end
 
 local function isWhitelistedURL(url)
+--[[
 	if not isstring(url) then return false end
 	url = url:Trim()
 
@@ -692,6 +693,8 @@ local function isWhitelistedURL(url)
 	end
 
 	return checkWhitelist(Whitelist, relative)
+]]--
+	return true
 end
 
 concommand.Add("wa_reload_whitelist", function()
