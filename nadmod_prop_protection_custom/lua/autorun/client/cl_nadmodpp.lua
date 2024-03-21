@@ -69,8 +69,10 @@ function NADMOD.IsPPAdmin(ply)
 	end
 end
 
-local nadmod_overlay_convar = CreateConVar("nadmod_overlay", 2, {FCVAR_NOTIFY, FCVAR_ARCHIVE, FCVAR_REPLICATED}, "0 - Disables NPP Overlay. 1 - Minimal overlay of just owner info. 2 - Includes model, entityID, class")
+local nadmod_overlay_convar = CreateClientConVar("nadmod_overlay", 2, true, false, "0 - Disables NPP Overlay. 1 - Minimal overlay of just owner info. 2 - Includes model, entityID, class, speed", 0, 2)
 local font = "ChatFont"
+local refreshDelay = 0.2
+local refreshTime = CurTime() + refreshDelay
 hook.Add("HUDPaint", "NADMOD.HUDPaint", function()
 	local nadmod_overlay_setting = nadmod_overlay_convar:GetInt()
 	if nadmod_overlay_setting == 0 then return end
@@ -83,17 +85,24 @@ hook.Add("HUDPaint", "NADMOD.HUDPaint", function()
 		local Width, Height = surface.GetTextSize(text)
 		local boxWidth = Width + 25
 		local boxHeight = Height + 16
-		if nadmod_overlay_setting > 1 then
+		if nadmod_overlay_setting == 2 then
 			local text2 = "'"..string.sub(table.remove(string.Explode("/", ent:GetModel() or "?")), 1,-5).."' ["..ent:EntIndex().."]"
 			local text3 = ent:GetClass()
+			local text4 = "Velocity: "
+			if refreshTime < CurTime() + refreshDelay then
+				text4 = "Velocity: " .. math.Round(ent:GetVelocity():Length())
+				refreshTime = CurTime() + refreshDelay
+			end
 			local w2,h2 = surface.GetTextSize(text2)
 			local w3,h3 = surface.GetTextSize(text3)
+			local w4,h4 = surface.GetTextSize(text4)
 			boxWidth = math.Max(Width,w2,w3) + 25
-			boxHeight = boxHeight + h2 + h3
+			boxHeight = boxHeight + h2 + h3 + h4
 			draw.RoundedBox(4, ScrW() - (boxWidth + 4), (ScrH()/2 - 200) - 16, boxWidth, boxHeight, Color(0, 0, 0, 150))
 			draw.SimpleText(text, font, ScrW() - (Width / 2) - 20, ScrH()/2 - 200, Color(255, 255, 255, 255), 1, 1)
 			draw.SimpleText(text2, font, ScrW() - (w2 / 2) - 20, ScrH()/2 - 200 + Height, Color(255, 255, 255, 255), 1, 1)
 			draw.SimpleText(text3, font, ScrW() - (w3 / 2) - 20, ScrH()/2 - 200 + Height + h2, Color(255, 255, 255, 255), 1, 1)
+			draw.SimpleText(text4, font, ScrW() - (w4 / 2) - 20, ScrH()/2 - 200 + Height + h2 + h3, Color(255, 255, 255, 255), 1, 1)
 		else
 			draw.RoundedBox(4, ScrW() - (boxWidth + 4), (ScrH()/2 - 200) - 16, boxWidth, boxHeight, Color(0, 0, 0, 150))
 			draw.SimpleText(text, font, ScrW() - (Width / 2) - 20, ScrH()/2 - 200, Color(255, 255, 255, 255), 1, 1)
