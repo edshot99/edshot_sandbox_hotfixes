@@ -155,7 +155,7 @@ function ulx.votemap( calling_ply, map )
 			end
 		end
 
-		if #admins <= 0 or vetotime < 1 then
+		if vetotime < 1 then
 			ULib.tsay( _, "Vote for map " .. ulx.votemaps[ mapid ] .. " successful! Changing levels now.", true ) -- TODO, color?
 			ulx.logString( "Votemap for " .. ulx.votemaps[ mapid ] .. " won." )
 			game.ConsoleCommand( "changelevel " .. ulx.votemaps[ mapid ] .. "\n" )
