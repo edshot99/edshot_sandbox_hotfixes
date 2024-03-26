@@ -38,7 +38,7 @@ function ENT:Initialize()
 	self.Entity:DrawShadow(false)
 	self.Entity:SetMaxHealth(5)
 	self.Entity:SetHealth(5)
-	self.Entity:SetOwner(game.GetWorld())
+	self.Entity:SetOwner(self.SpawnPadOwner)
 	self.HealthAmnt = GetConVar( "personal_spawn_pad_hp" ):GetInt()
 	
 	local phys = self.Entity:GetPhysicsObject()
