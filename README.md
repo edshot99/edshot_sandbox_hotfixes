@@ -1,5 +1,5 @@
 # edshot_sandbox_hotfixes
-Fixes for addons I use.
+Fixes and customizations for addons I use. Some other stuff too.
 
 ## Install
 1. Click the green button that says 'Code'
