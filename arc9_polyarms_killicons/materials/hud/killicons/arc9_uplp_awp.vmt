@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "hud/killicons/arc9_uplp_awp"
+	"$translucent" 1
+}
