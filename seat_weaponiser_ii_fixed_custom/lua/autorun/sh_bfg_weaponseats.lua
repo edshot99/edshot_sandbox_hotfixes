@@ -58,8 +58,8 @@ if SERVER then
 		end
 
 		if !ply.SWInfo then
-			ply:SendLua([[chat.AddText(Color(0, 255, 50), "This server is using Seat Weaponiser!\n", Color(50, 255, 255), "Double-tap the context key (C by default) or bind a key to weaponseats_toggle to use it!")]])
-			ply:SendLua([[chat.AddText(Color(255, 0, 0), "To toggle the in-seat crosshair, use the convar weaponseats_enablecrosshair 1 or 0.")]])
+			--ply:SendLua([[chat.AddText(Color(0, 255, 50), "This server is using Seat Weaponiser!\n", Color(50, 255, 255), "Double-tap the context key (C by default) or bind a key to weaponseats_toggle to use it!")]])
+			--ply:SendLua([[chat.AddText(Color(255, 0, 0), "To toggle the in-seat crosshair, use the convar weaponseats_enablecrosshair 1 or 0.")]])
 			ply.SWInfo = true
 		end
 	end)
@@ -99,6 +99,7 @@ else
 		end
 	end)
 
+	--[[
 	hook.Add("ContextMenuOpen", "BFG_WeaponSeats_Toggle", function()
 		local ply = LocalPlayer()
 		if !input.LookupBinding("weaponseats_toggle") and SWLastPressed and CurTime() - SWLastPressed < 0.5 then
@@ -108,6 +109,16 @@ else
 
 		SWLastPressed = CurTime()
 	end)
+	]]--
+
+	list.Set("DesktopWindows", "WeaponSeats", {
+		title = "Seat Weapons",
+		icon = "icon16/car.png",
+		init = function()
+			net.Start("WeaponSeats_ToggleCommand")
+			net.SendToServer()
+		end
+	})
 
 	hook.Add("CalcViewModelView", "BFG_WeaponSeats_OffsetFix", function()
 		local ply = LocalPlayer()
