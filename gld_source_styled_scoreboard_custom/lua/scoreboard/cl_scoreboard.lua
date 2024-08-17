@@ -16,7 +16,7 @@ local PLAYER_LINE_TITLE = {
         self.Players = self:Add("DLabel")
         self.Players:SetFont("ScoreboardPlayer")
         self.Players:SetTextColor(Color(255, 215, 0))
-        self.Players:SetPos(10, 5)
+        self.Players:SetPos(40, 5)
         self.Players:SetWidth(300)
 
         self.Score = self:Add("DLabel")
@@ -40,12 +40,12 @@ local PLAYER_LINE_TITLE = {
         self.Ping:SetPos(550, 5)
         self.Ping:SetWidth(100)
 
-        self.SteamID = self:Add("DLabel")
-        self.SteamID:SetFont("ScoreboardPlayer")
-        self.SteamID:SetTextColor(Color(255, 215, 0))
-        self.SteamID:SetText("SteamID")
-        self.SteamID:SetPos(650, 5)
-        self.SteamID:SetWidth(200)
+        self.Muted = self:Add("DLabel")
+        self.Muted:SetFont("ScoreboardPlayer")
+        self.Muted:SetTextColor(Color(255, 215, 0))
+        self.Muted:SetText("Mute")
+        self.Muted:SetPos(600, 5)
+        self.Muted:SetWidth(100)
 
         self:Dock(TOP)
         self:DockPadding(3, 3, 3, 3)
@@ -65,10 +65,21 @@ PLAYER_LINE_TITLE = vgui.RegisterTable(PLAYER_LINE_TITLE, "DPanel")
 
 local PLAYER_LINE = {
     Init = function(self)
+        self.Avatar = self:Add("AvatarImage")
+        self.Avatar:SetPos(5, 3)
+        self.Avatar:SetSize(24, 24)
+
+        self.AvatarButton = self:Add("DLabel")
+        self.AvatarButton:SetText("")
+        self.AvatarButton:SetPos(5, 3)
+        self.AvatarButton:SetSize(24, 24)
+        self.AvatarButton:SetCursor("hand")
+        self.AvatarButton:SetMouseInputEnabled(true)
+
         self.Name = self:Add("DLabel")
         self.Name:SetFont("ScoreboardPlayer")
         self.Name:SetTextColor(Color(255, 215, 0))
-        self.Name:SetPos(10, 5)
+        self.Name:SetPos(40, 5)
         self.Name:SetWidth(300)
 
         self.Score = self:Add("DLabel")
@@ -89,11 +100,10 @@ local PLAYER_LINE = {
         self.Ping:SetPos(550, 5)
         self.Ping:SetWidth(100)
 
-        self.SteamID = self:Add("DLabel")
-        self.SteamID:SetFont("ScoreboardPlayer")
-        self.SteamID:SetTextColor(Color(255, 215, 0))
-        self.SteamID:SetPos(650, 5)
-        self.SteamID:SetWidth(200)
+        self.Mute = self:Add("DImageButton")
+        self.Mute:SetPos(585, 5)
+        self.Mute:SetWidth(50)
+        self.Mute:SetStretchToFit(false)
 
         self:Dock(TOP)
         self:SetHeight(38)
@@ -113,15 +123,22 @@ local PLAYER_LINE = {
         end
 
         local name = self.Player:Nick()
-        if #name > 12 then
-            name = string.sub(name, 1, 12) .. "..."
+        if #name > 32 then
+            name = string.sub(name, 1, 32) .. "..."
         end
 
+        self.Avatar:SetPlayer(self.Player)
+        self.AvatarButton.DoClick = function() self.Player:ShowProfile() end
         self.Name:SetText(name)
         self.Score:SetText(self.Player:Frags())
         self.Deaths:SetText(self.Player:Deaths())
         self.Ping:SetText(self.Player:Ping())
-        self.SteamID:SetText(self.Player:SteamID())
+        self.Mute:SetImage((self.Player:IsMuted() and "materials/icon16/sound_none.png") or "materials/icon16/sound.png")
+        self.Mute.DoClick = function()
+            self.Player:SetMuted(!self.Player:IsMuted())
+        end
+
+        self:SetZPos((self.Player:Frags() * -50) + self.Player:Deaths() + self.Player:EntIndex())
     end,
 
     Paint = function(self, w, h)
@@ -167,7 +184,7 @@ local SCORE_BOARD = {
     end,
 
     Think = function(self)
-        self.Name:SetText(GetHostName())
+        self.Name:SetText(GetHostName() .. " @ " .. game.GetMap())
         self.Title.Players:SetText("Players (" .. #player.GetAll() .. ")")
 
         for id, pl in pairs(player.GetAll()) do
